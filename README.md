@@ -49,26 +49,10 @@ This installs useful aliases such as:
 - dev-health
 - dev-firewall
 - dev-user
-- git-identity
-- git-clone
-- git-user
-- git-lock
+- seed-key
 - luks-create
 - luks-open
 - security-scan
-
-You can then run commands like:
-
-```bash
-dev-install
-dev-health
-dev-firewall
-dev-user
-git-identity
-luks-create
-luks-open
-security-scan
-```
 
 ---
 
@@ -111,29 +95,19 @@ Creates a new local user named ephemeral with a prompted password, restricted sh
 
 and allows access to Git and Nano only.
 
----
-
-## Git identity workflows
-
-The scripts under sh/git_identities are designed for managed identity separation and safer Git use.
-
-Common examples:
+### Deterministic private key from a 32-byte seed
 
 ```bash
-bash sh/git_identities/ephemeral_git_identities.sh
-bash sh/git_identities/git_clone_repositories_useraccount.sh
-bash sh/git_identities/clean_and_safe_gituser.sh
-bash sh/git_identities/locked_down_development_account.sh
-bash sh/git_identities/ssh_locked_git_repository.sh
+bash setup/seed_to_private_key.sh <64-hex-character-seed> [output-dir]
 ```
 
-These cover:
+Generates an Ed25519 private key from a 32-byte seed and writes:
 
-- per-persona SSH keys and Git config isolation
-- safe repo cloning patterns
-- hardened local Git users
-- restricted developer account setup
-- locked-down Git-over-SSH repository handling
+- private_key.pem
+- public_key.pem
+- public_key.pub
+
+This is useful when you want a reproducible keypair based on a known seed value rather than a randomly generated one.
 
 ---
 

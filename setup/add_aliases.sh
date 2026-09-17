@@ -25,6 +25,7 @@ declare -A ALIASES=(
     [dev-health]="$REPO_ROOT/setup/healthcheck.sh"
     [dev-firewall]="$REPO_ROOT/setup/nftables.sh"
     [dev-user]="$REPO_ROOT/setup/secure_git_nano_user.sh"
+    [seed-key]="$REPO_ROOT/setup/seed_to_private_key.sh"
     [git-identity]="$REPO_ROOT/sh/git_identities/ephemeral_git_identities.sh"
     [git-clone]="$REPO_ROOT/sh/git_identities/git_clone_repositories_useraccount.sh"
     [git-user]="$REPO_ROOT/sh/git_identities/clean_and_safe_gituser.sh"
